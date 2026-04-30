@@ -1,5 +1,3 @@
-import type { ContentPayload } from "@/types";
-
 export const DEFAULT_CONTENT: ContentPayload = {
   version: 1,
   updatedAt: "2026-04-30T00:00:00.000Z",
