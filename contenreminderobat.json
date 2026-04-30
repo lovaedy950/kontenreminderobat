@@ -284,6 +284,19 @@ export const DEFAULT_CONTENT: ContentPayload = {
         "Anda dapat menggunakan nama anonim. Data tersimpan terenkripsi di perangkat dan dapat disinkronkan ke Supabase pribadi Anda. Tidak ada pihak ketiga yang dapat membaca data tanpa kunci Anda.",
       tags: ["privasi", "keamanan"],
     },
+    {
+  "id": "art-4",
+  "title": "Tips Sehat Berbasis Riset: Formula 'Longevity Trio' 2025-2026",
+  "category": "Gaya Hidup Sehat",
+  "author": "dr. Rina Santika, Sp.GK",
+  "source": "HealthToday Editorial",
+  "publishedAt": "2026-04-30",
+  "readTimeMinutes": 4,
+  "coverImage": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&q=80",
+  "excerpt": "Riset terbaru mengungkap rahasia kesehatan: sinergi tidur cukup, aktivitas fisik, dan pola makan. Perubahan kecil terbukti menurunkan risiko penyakit kronis hingga 10%.",
+  "content": "Penelitian terbaru tahun 2025-2026 menekankan bahwa rahasia hidup sehat bukanlah perubahan drastis, melainkan akumulasi kebiasaan kecil yang konsisten. Pendekatan 'Longevity Trio'—kombinasi tidur, aktivitas fisik, dan pola makan—terbukti memberikan perlindungan jauh lebih kuat terhadap penyakit kronis dan kematian dini.\n\n1. Tidur: Usahakan tidur 7-8 jam setiap malam. Tidur di bawah 7 jam atau di atas 8 jam meningkatkan risiko demensia dan penyakit jantung.\n2. Gerak: Targetkan minimal 42 menit aktivitas fisik sedang-berat per hari. Strategi interval ala Jepang (jalan cepat 3 menit, santai 3 menit) bisa menjadi awal yang baik.\n3. Pola Makan: Terapkan pola mirip diet Mediterania—perbanyak sayur, buah, biji-bijian, lemak sehat, serta kurangi daging merah, gula, dan garam.\n\nPerubahan kecil pun berdampak besar: hanya dengan menambah 11 menit tidur, 4,5 menit olahraga, dan seperempat cangkir sayuran per hari, risiko serangan jantung dan stroke bisa turun 10%.\n\nTips memulai: pilih satu kebiasaan kecil, lakukan konsisten, lalu tambah secara bertahap. Kuncinya adalah konsistensi, bukan kesempurnaan.",
+  "tags": ["gaya hidup sehat", "longevity trio", "riset terbaru", "tidur", "aktivitas fisik", "pola makan"]
+},
   ],
   ads: {
     enabled: true,
