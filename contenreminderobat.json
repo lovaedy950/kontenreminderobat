@@ -1,0 +1,368 @@
+import type { ContentPayload } from "@/types";
+
+export const DEFAULT_CONTENT: ContentPayload = {
+  version: 1,
+  updatedAt: "2026-04-30T00:00:00.000Z",
+  disclaimer: {
+    title: "Disclaimer & Tanggung Jawab Pengguna",
+    updatedAt: "2026-04-30",
+    body:
+      "MediTrust adalah aplikasi pendamping (companion) untuk membantu pengguna memantau pengingat obat dan riwayat hasil laboratorium. Aplikasi ini BUKAN pengganti konsultasi tenaga medis profesional. Seluruh informasi, rentang rujukan, artikel edukasi, serta hasil analisa berbasis kecerdasan buatan (AI) yang ditampilkan bersifat informatif dan dapat berbeda-beda untuk setiap individu sesuai kondisi klinis, usia, jenis kelamin, dan metode pemeriksaan masing-masing laboratorium.",
+    sections: [
+      {
+        title: "Bukan Pengganti Tenaga Medis",
+        body:
+          "Selalu konsultasikan keluhan, diagnosa, dosis obat, dan interpretasi hasil laboratorium dengan dokter atau apoteker Anda. Jangan menghentikan, mengubah, atau menambah obat tanpa konsultasi tenaga medis.",
+      },
+      {
+        title: "Rentang Rujukan Laboratorium",
+        body:
+          "Rentang nilai normal yang digunakan adalah rentang umum dewasa yang merujuk pada literatur nasional. Nilai rujukan dapat berbeda antar laboratorium tergantung metode dan reagen yang digunakan. Mohon mengacu pada lembar hasil resmi dari laboratorium tempat Anda melakukan pemeriksaan.",
+      },
+      {
+        title: "Privasi & Penyimpanan Data",
+        body:
+          "Data obat dan hasil lab Anda tersimpan secara lokal di perangkat. Anda dapat menggunakan mode anonim untuk menyembunyikan identitas. Tidak ada pihak ketiga yang dapat membaca data Anda tanpa izin.",
+      },
+      {
+        title: "Akurasi AI",
+        body:
+          "Fitur ekstraksi otomatis dari foto/PDF dan rekomendasi penulisan parameter berbasis AI dapat keliru. Selalu verifikasi nilai dan satuan hasil pemeriksaan sebelum disimpan.",
+      },
+      {
+        title: "Iklan & Sponsor",
+        body:
+          "Beberapa konten ditandai sebagai 'Sponsor'. MediTrust tidak menjamin kualitas produk atau layanan pihak ketiga. Keputusan pembelian sepenuhnya menjadi tanggung jawab pengguna.",
+      },
+    ],
+  },
+  laboratories: [
+    { id: "lab-prodia", name: "Laboratorium Klinik Prodia", city: "Jakarta", type: "Klinik", accreditation: "KAN ISO 15189" },
+    { id: "lab-kimia-farma", name: "Kimia Farma Diagnostika", city: "Jakarta", type: "Klinik", accreditation: "KAN" },
+    { id: "lab-pramita", name: "Pramita Lab", city: "Surabaya", type: "Klinik", accreditation: "KAN" },
+    { id: "lab-parahita", name: "Parahita Diagnostic Center", city: "Surabaya", type: "Klinik", accreditation: "KAN" },
+    { id: "lab-cito", name: "Laboratorium Cito", city: "Semarang", type: "Klinik", accreditation: "KAN" },
+    { id: "lab-rscm", name: "RSCM Laboratorium Patologi Klinik", city: "Jakarta", type: "RS", accreditation: "KARS" },
+    { id: "lab-sardjito", name: "RS Sardjito Laboratorium", city: "Yogyakarta", type: "RS", accreditation: "KARS" },
+    { id: "lab-bio-medika", name: "Bio Medika Lab", city: "Bandung", type: "Klinik" },
+    { id: "lab-westerindo", name: "Westerindo Lab", city: "Jakarta", type: "Klinik", accreditation: "KAN" },
+    { id: "lab-quantum", name: "Quantum Lab", city: "Medan", type: "Klinik" },
+  ],
+  labTestCatalog: [
+  // ==================== HEMATOLOGI ====================
+  { name: "Hemoglobin (Hb) Pria", unit: "g/dL", min: 13.0, max: 17.5, category: "Hematologi" },
+  { name: "Hemoglobin (Hb) Wanita", unit: "g/dL", min: 12.0, max: 16.0, category: "Hematologi" },
+  { name: "Leukosit", unit: "10^3/µL", min: 4.5, max: 11.0, category: "Hematologi" },
+  { name: "Hematokrit (Hct) Pria", unit: "%", min: 40.0, max: 52.0, category: "Hematologi" },
+  { name: "Hematokrit (Hct) Wanita", unit: "%", min: 37.0, max: 47.0, category: "Hematologi" },
+  { name: "Trombosit", unit: "10^3/µL", min: 150, max: 450, category: "Hematologi" },
+  { name: "Eritrosit Pria", unit: "10^6/µL", min: 4.5, max: 5.9, category: "Hematologi" },
+  { name: "Eritrosit Wanita", unit: "10^6/µL", min: 4.0, max: 5.2, category: "Hematologi" },
+  { name: "Laju Endap Darah (LED)", unit: "mm/jam", min: 0, max: 15, category: "Hematologi" },
+  { name: "MCV (Mean Corpuscular Volume)", unit: "fL", min: 80, max: 100, category: "Hematologi" },
+  { name: "MCH (Mean Corpuscular Hemoglobin)", unit: "pg", min: 27, max: 33, category: "Hematologi" },
+  { name: "MCHC (Mean Corpuscular Hemoglobin Concentration)", unit: "g/dL", min: 32, max: 36, category: "Hematologi" },
+  { name: "Hitungan Jenis Leukosit (Differential Count)", unit: "%", min: 0, max: 0, category: "Hematologi" }, // kualitatif
+  { name: "Neutrofil Absolute (ANC)", unit: "10^3/µL", min: 1.5, max: 8.0, category: "Hematologi" },
+  { name: "Eosinofil Absolute", unit: "10^3/µL", min: 0.02, max: 0.5, category: "Hematologi" },
+  { name: "Retikulosit", unit: "%", min: 0.5, max: 1.5, category: "Hematologi" },
+  { name: "RPI (Reticulocyte Production Index)", unit: "indeks", min: 1.0, max: 2.0, category: "Hematologi" },
+  { name: "Golongan Darah ABO", unit: "hasil", min: 0, max: 0, category: "Hematologi" }, // A, B, AB, O
+  { name: "Rhesus", unit: "hasil", min: 0, max: 0, category: "Hematologi" }, // Positif/Negatif
+  { name: "APTT (PTTK)", unit: "detik", min: 24, max: 35, category: "Hematologi" },
+  { name: "PT (Prothrombin Time)", unit: "detik", min: 10, max: 13, category: "Hematologi" },
+  { name: "INR", unit: "rasio", min: 0.9, max: 1.2, category: "Hematologi" },
+  { name: "D-Dimer", unit: "ng/mL", min: 0, max: 300, category: "Hematologi" },
+  { name: "Bleeding Time", unit: "menit", min: 1, max: 3, category: "Hematologi" },
+  { name: "Clotting Time", unit: "menit", min: 5, max: 10, category: "Hematologi" },
+  { name: "Fibrinogen", unit: "mg/dL", min: 200, max: 400, category: "Hematologi" },
+  { name: "Faktor VIII", unit: "%", min: 50, max: 150, category: "Hematologi" },
+  { name: "Faktor IX", unit: "%", min: 50, max: 150, category: "Hematologi" },
+  { name: "von Willebrand Factor", unit: "%", min: 50, max: 200, category: "Hematologi" },
+  { name: "Gambaran Darah Tepi", unit: "kualitatif", min: 0, max: 0, category: "Hematologi" },
+  { name: "Morfologi Sumsum Tulang", unit: "kualitatif", min: 0, max: 0, category: "Hematologi" },
+  { name: "Imunofenotiping Leukemia", unit: "kualitatif", min: 0, max: 0, category: "Hematologi" },
+
+  // ==================== KIMIA KLINIK - DIABETES & LIPID ====================
+  { name: "Glukosa Puasa", unit: "mg/dL", min: 70, max: 100, category: "Diabetes" },
+  { name: "Glukosa 2 Jam PP", unit: "mg/dL", min: 100, max: 140, category: "Diabetes" },
+  { name: "Glukosa Sewaktu", unit: "mg/dL", min: 70, max: 140, category: "Diabetes" },
+  { name: "HbA1c (Gliko HB)", unit: "%", min: 4.0, max: 5.6, category: "Diabetes" },
+  { name: "OGTT (Tes Toleransi Glukosa Oral)", unit: "mg/dL", min: 0, max: 0, category: "Diabetes" }, // multi-point
+  { name: "Kolesterol Total", unit: "mg/dL", min: 125, max: 200, category: "Lipid" },
+  { name: "Kolesterol LDL", unit: "mg/dL", min: 0, max: 130, category: "Lipid" },
+  { name: "Kolesterol HDL", unit: "mg/dL", min: 40, max: 60, category: "Lipid" },
+  { name: "Trigliserida", unit: "mg/dL", min: 0, max: 150, category: "Lipid" },
+
+  // ==================== KIMIA KLINIK - HATI ====================
+  { name: "SGOT (AST)", unit: "U/L", min: 0, max: 35, category: "Hati" },
+  { name: "SGPT (ALT)", unit: "U/L", min: 0, max: 45, category: "Hati" },
+  { name: "Gamma GT", unit: "U/L", min: 8, max: 61, category: "Hati" },
+  { name: "Bilirubin Total", unit: "mg/dL", min: 0.1, max: 1.2, category: "Hati" },
+  { name: "Bilirubin Direk", unit: "mg/dL", min: 0, max: 0.3, category: "Hati" },
+  { name: "Bilirubin Indirek", unit: "mg/dL", min: 0.1, max: 0.9, category: "Hati" },
+  { name: "Albumin", unit: "g/dL", min: 3.4, max: 4.8, category: "Hati" },
+  { name: "Protein Total", unit: "g/dL", min: 6.0, max: 8.0, category: "Hati" },
+  { name: "Globulin", unit: "g/dL", min: 2.0, max: 3.5, category: "Hati" },
+  { name: "Fosfatase Alkali (ALP)", unit: "U/L", min: 30, max: 120, category: "Hati" },
+  { name: "Laktat Dehidrogenase (LDH)", unit: "U/L", min: 100, max: 200, category: "Hati" },
+
+  // ==================== KIMIA KLINIK - GINJAL & ELEKTROLIT ====================
+  { name: "Ureum (BUN)", unit: "mg/dL", min: 15, max: 45, category: "Ginjal" },
+  { name: "Kreatinin Darah", unit: "mg/dL", min: 0.7, max: 1.3, category: "Ginjal" },
+  { name: "Klirens Kreatinin", unit: "mL/menit", min: 90, max: 120, category: "Ginjal" },
+  { name: "Asam Urat Pria", unit: "mg/dL", min: 3.5, max: 7.2, category: "Ginjal" },
+  { name: "Asam Urat Wanita", unit: "mg/dL", min: 2.5, max: 6.0, category: "Ginjal" },
+  { name: "Natrium (Na) Darah", unit: "mmol/L", min: 135, max: 145, category: "Elektrolit" },
+  { name: "Kalium (K) Darah", unit: "mmol/L", min: 3.5, max: 5.1, category: "Elektrolit" },
+  { name: "Klorida (Cl) Darah", unit: "mmol/L", min: 98, max: 107, category: "Elektrolit" },
+  { name: "Kalsium Darah", unit: "mg/dL", min: 8.5, max: 10.5, category: "Elektrolit" },
+  { name: "Magnesium Darah", unit: "mg/dL", min: 1.7, max: 2.2, category: "Elektrolit" },
+  { name: "Fosfor Darah", unit: "mg/dL", min: 2.5, max: 4.5, category: "Elektrolit" },
+
+  // ==================== KIMIA KLINIK - JANTUNG & GAS DARAH ====================
+  { name: "CK (Creatinine Kinase)", unit: "U/L", min: 30, max: 200, category: "Jantung" },
+  { name: "CKMB", unit: "U/L", min: 0, max: 25, category: "Jantung" },
+  { name: "Troponin I", unit: "ng/mL", min: 0, max: 0.04, category: "Jantung" },
+  { name: "HS Troponin I", unit: "ng/mL", min: 0, max: 0.02, category: "Jantung" },
+  { name: "pH Darah", unit: "-", min: 7.35, max: 7.45, category: "Gas Darah" },
+  { name: "pCO2", unit: "mmHg", min: 35, max: 45, category: "Gas Darah" },
+  { name: "pO2", unit: "mmHg", min: 80, max: 100, category: "Gas Darah" },
+  { name: "HCO3", unit: "mmol/L", min: 22, max: 26, category: "Gas Darah" },
+  { name: "Base Excess (BE)", unit: "mmol/L", min: -2, max: 2, category: "Gas Darah" },
+  { name: "Laktat (Asam Laktat)", unit: "mmol/L", min: 0.5, max: 2.0, category: "Gas Darah" },
+  { name: "Beta-Hidroksi Butirat (Keton)", unit: "mmol/L", min: 0.0, max: 0.5, category: "Gas Darah" },
+
+  // ==================== ANEMIA / BESI ====================
+  { name: "Besi (Fe) Serum", unit: "µg/dL", min: 50, max: 150, category: "Anemia" },
+  { name: "Ferritin", unit: "ng/mL", min: 20, max: 200, category: "Anemia" },
+  { name: "TIBC", unit: "µg/dL", min: 250, max: 400, category: "Anemia" },
+
+  // ==================== IMUNOLOGI - MARKER RHEUMATIK ====================
+  { name: "ASTO (Anti-streptolysin O)", unit: "IU/mL", min: 0, max: 200, category: "Rheumatik" },
+  { name: "CRP (C-Reactive Protein)", unit: "mg/L", min: 0, max: 5, category: "Rheumatik" },
+  { name: "HS-CRP", unit: "mg/L", min: 0, max: 3, category: "Rheumatik" },
+  { name: "Rheumatoid Factor (RF)", unit: "IU/mL", min: 0, max: 20, category: "Rheumatik" },
+  { name: "ANA (ELISA/IF)", unit: "titer", min: 0, max: 40, category: "Rheumatik" }, // <1:40 negatif
+
+  // ==================== IMUNOLOGI - MARKER HEPATITIS ====================
+  { name: "HBsAg", unit: "kualitatif", min: 0, max: 0, category: "Hepatitis" }, // non-reaktif
+  { name: "Anti-HBs", unit: "mIU/mL", min: 10, max: 0, category: "Hepatitis" }, // >10 = protektif
+  { name: "Anti-HBc Total", unit: "kualitatif", min: 0, max: 0, category: "Hepatitis" },
+  { name: "Anti-HBc IgM", unit: "kualitatif", min: 0, max: 0, category: "Hepatitis" },
+  { name: "HBeAg", unit: "kualitatif", min: 0, max: 0, category: "Hepatitis" },
+  { name: "Anti-HBe", unit: "kualitatif", min: 0, max: 0, category: "Hepatitis" },
+  { name: "Anti-HCV", unit: "kualitatif", min: 0, max: 0, category: "Hepatitis" },
+  { name: "Anti-HAV IgM", unit: "kualitatif", min: 0, max: 0, category: "Hepatitis" },
+
+  // ==================== IMUNOLOGI - MARKER TUMOR ====================
+  { name: "AFP (Alpha-Fetoprotein)", unit: "ng/mL", min: 0, max: 10, category: "Penanda Tumor" },
+  { name: "CEA (Carcinoembryonic Antigen)", unit: "ng/mL", min: 0, max: 5, category: "Penanda Tumor" },
+  { name: "PSA Total", unit: "ng/mL", min: 0, max: 4, category: "Penanda Tumor" },
+  { name: "CA 125", unit: "U/mL", min: 0, max: 35, category: "Penanda Tumor" },
+  { name: "CA 15-3", unit: "U/mL", min: 0, max: 30, category: "Penanda Tumor" },
+  { name: "CA 19-9", unit: "U/mL", min: 0, max: 37, category: "Penanda Tumor" },
+
+  // ==================== IMUNOLOGI - TIROID ====================
+  { name: "TSH (sensitive)", unit: "µIU/mL", min: 0.27, max: 4.2, category: "Tiroid" },
+  { name: "Free T4 (FT4)", unit: "ng/dL", min: 0.93, max: 1.7, category: "Tiroid" },
+  { name: "Free T3 (FT3)", unit: "pg/mL", min: 2.0, max: 4.4, category: "Tiroid" },
+  { name: "T4 Total", unit: "µg/dL", min: 4.8, max: 12.7, category: "Tiroid" },
+  { name: "T3 Total", unit: "ng/dL", min: 80, max: 200, category: "Tiroid" },
+  { name: "Anti-TPO", unit: "IU/mL", min: 0, max: 34, category: "Tiroid" },
+  { name: "Anti-Thyroglobulin (Anti-Tg)", unit: "IU/mL", min: 0, max: 115, category: "Tiroid" },
+  { name: "Tiroglobulin", unit: "ng/mL", min: 3, max: 40, category: "Tiroid" },
+
+  // ==================== IMUNOLOGI - TORCH ====================
+  { name: "Anti-Toxoplasma IgG", unit: "IU/mL", min: 0, max: 10, category: "TORCH" }, // negatif <10
+  { name: "Anti-Toxoplasma IgM", unit: "indeks", min: 0, max: 0.8, category: "TORCH" },
+  { name: "Anti-Rubella IgG", unit: "IU/mL", min: 0, max: 10, category: "TORCH" },
+  { name: "Anti-Rubella IgM", unit: "indeks", min: 0, max: 0.8, category: "TORCH" },
+  { name: "Anti-CMV IgG", unit: "AU/mL", min: 0, max: 14, category: "TORCH" },
+  { name: "Anti-CMV IgM", unit: "indeks", min: 0, max: 0.7, category: "TORCH" },
+  { name: "Anti-HSV1 IgG", unit: "indeks", min: 0, max: 0.8, category: "TORCH" },
+  { name: "Anti-HSV1 IgM", unit: "indeks", min: 0, max: 0.8, category: "TORCH" },
+  { name: "Anti-HSV2 IgG", unit: "indeks", min: 0, max: 0.8, category: "TORCH" },
+  { name: "Anti-HSV2 IgM", unit: "indeks", min: 0, max: 0.8, category: "TORCH" },
+
+  // ==================== IMUNOLOGI - HORMON REPRODUKSI ====================
+  { name: "FSH", unit: "mIU/mL", min: 4, max: 13, category: "Hormon Reproduksi" }, // wanita dewasa
+  { name: "LH", unit: "mIU/mL", min: 1, max: 12, category: "Hormon Reproduksi" },
+  { name: "Estradiol", unit: "pg/mL", min: 30, max: 400, category: "Hormon Reproduksi" },
+  { name: "Progesteron", unit: "ng/mL", min: 0.1, max: 25, category: "Hormon Reproduksi" },
+  { name: "Testosteron Pria", unit: "ng/dL", min: 300, max: 1000, category: "Hormon Reproduksi" },
+  { name: "Testosteron Wanita", unit: "ng/dL", min: 15, max: 70, category: "Hormon Reproduksi" },
+  { name: "AMH (Anti-Mullerian Hormone)", unit: "ng/mL", min: 0.5, max: 5.0, category: "Hormon Reproduksi" },
+  { name: "Prolaktin", unit: "ng/mL", min: 4, max: 23, category: "Hormon Reproduksi" },
+  { name: "Beta-hCG", unit: "mIU/mL", min: 0, max: 5, category: "Hormon Reproduksi" }, // non-pregnant
+
+  // ==================== IMUNOLOGI - LAIN-LAIN ====================
+  { name: "HIV 1&2 Antibodi", unit: "kualitatif", min: 0, max: 0, category: "Infeksi" }, // non-reaktif
+  { name: "CD4 Count", unit: "sel/µL", min: 500, max: 1500, category: "Imunologi" },
+  { name: "Procalcitonin (PCT)", unit: "ng/mL", min: 0, max: 0.05, category: "Imunologi" },
+  { name: "Vitamin D 25-OH", unit: "ng/mL", min: 30, max: 80, category: "Nutrisi" },
+  { name: "Interleukin-6 (IL-6)", unit: "pg/mL", min: 0, max: 5, category: "Imunologi" },
+  { name: "Protein C", unit: "%", min: 70, max: 140, category: "Imunologi" },
+  { name: "Protein S", unit: "%", min: 70, max: 140, category: "Imunologi" },
+  { name: "Tacrolimus", unit: "ng/mL", min: 5, max: 15, category: "Terapi Obat" },
+  { name: "BCR-ABL (Kuantitatif)", unit: "%IS", min: 0, max: 0.1, category: "Molekular" },
+  { name: "G6PD", unit: "U/g Hb", min: 4.6, max: 13.5, category: "Enzim" },
+
+  // ==================== SEKRESI & EKSKRESI - URIN ====================
+  { name: "Urinalisis Lengkap", unit: "kualitatif", min: 0, max: 0, category: "Urinalisis" },
+  { name: "pH Urin", unit: "-", min: 4.5, max: 8.0, category: "Urinalisis" },
+  { name: "Berat Jenis Urin", unit: "-", min: 1.003, max: 1.030, category: "Urinalisis" },
+  { name: "Protein Urin Kuantitatif", unit: "mg/24h", min: 0, max: 150, category: "Urinalisis" },
+  { name: "Albumin/Creatinine Ratio (ACR)", unit: "mg/g", min: 0, max: 30, category: "Urinalisis" },
+  { name: "Glukosa Urin", unit: "kualitatif", min: 0, max: 0, category: "Urinalisis" },
+  { name: "Keton Urin", unit: "kualitatif", min: 0, max: 0, category: "Urinalisis" },
+  { name: "Sedimen Urin (Eritrosit, Leukosit, Silinder)", unit: "/LPB", min: 0, max: 5, category: "Urinalisis" },
+
+  // ==================== SEKRESI & EKSKRESI - FAESES ====================
+  { name: "Feses Rutin (Makroskopis & Mikroskopis)", unit: "kualitatif", min: 0, max: 0, category: "Feses" },
+  { name: "Darah Samar Tinja (FOB)", unit: "kualitatif", min: 0, max: 0, category: "Feses" },
+  { name: "Telur Cacing Kualitatif", unit: "kualitatif", min: 0, max: 0, category: "Feses" },
+  { name: "pH Feses", unit: "-", min: 6.5, max: 7.5, category: "Feses" },
+
+  // ==================== SEKRESI & EKSKRESI - CAIRAN TUBUH ====================
+  { name: "Analisis Cairan Serebrospinal (LCS)", unit: "kualitatif", min: 0, max: 0, category: "Cairan Tubuh" },
+  { name: "Glukosa LCS", unit: "mg/dL", min: 50, max: 80, category: "Cairan Tubuh" },
+  { name: "Protein LCS", unit: "mg/dL", min: 15, max: 45, category: "Cairan Tubuh" },
+  { name: "Analisis Cairan Asites, Pleura, Perikard", unit: "kualitatif", min: 0, max: 0, category: "Cairan Tubuh" },
+  { name: "Kristal Monosodium Urat (Cairan Sendi)", unit: "kualitatif", min: 0, max: 0, category: "Cairan Tubuh" },
+
+  // ==================== NARKOBA (SKRINING URIN) ====================
+  { name: "Skrining Amfetamin (Sabu)", unit: "kualitatif", min: 0, max: 0, category: "Narkoba" },
+  { name: "Skrining Barbiturat", unit: "kualitatif", min: 0, max: 0, category: "Narkoba" },
+  { name: "Skrining Benzodiazepin", unit: "kualitatif", min: 0, max: 0, category: "Narkoba" },
+  { name: "Skrining Kokain", unit: "kualitatif", min: 0, max: 0, category: "Narkoba" },
+  { name: "Skrining Mariyuana (THC)", unit: "kualitatif", min: 0, max: 0, category: "Narkoba" },
+  { name: "Skrining Metamfetamin", unit: "kualitatif", min: 0, max: 0, category: "Narkoba" },
+  { name: "Skrining Morfin (Opiat)", unit: "kualitatif", min: 0, max: 0, category: "Narkoba" }
+  ],
+  articles: [
+    {
+      id: "art-1",
+      title: "Mengapa Konsistensi Minum Obat Sangat Penting",
+      category: "Edukasi Pasien",
+      author: "dr. Sari Wijaya, Sp.PD",
+      source: "MediTrust Editorial",
+      publishedAt: "2026-03-12",
+      readTimeMinutes: 5,
+      coverImage: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&q=80",
+      excerpt:
+        "Kepatuhan minum obat berperan besar dalam keberhasilan terapi jangka panjang. Apa yang terjadi jika kita melewatkan dosis?",
+      content:
+        "Banyak penyakit kronis seperti hipertensi dan diabetes mengandalkan kadar obat yang stabil dalam darah. Saat dosis terlewat, kadar tersebut menurun di bawah ambang terapeutik dan keluhan dapat kambuh. Studi menunjukkan kepatuhan di atas 80% berkorelasi dengan penurunan komplikasi yang signifikan.\n\nTips menjaga kepatuhan:\n• Gunakan pengingat seperti MediTrust\n• Sandingkan jadwal minum obat dengan rutinitas harian\n• Catat efek samping agar dapat didiskusikan dengan dokter\n• Jangan menghentikan obat tanpa konsultasi",
+      tags: ["kepatuhan", "edukasi", "kronis"],
+    },
+    {
+      id: "art-2",
+      title: "Membaca Hasil Laboratorium dengan Tenang",
+      category: "Hasil Lab",
+      author: "dr. Budi Hartono",
+      source: "Klinik Sehat",
+      publishedAt: "2026-02-28",
+      readTimeMinutes: 7,
+      coverImage: "https://images.unsplash.com/photo-1581595219315-a187dd40c322?w=1200&q=80",
+      excerpt:
+        "Angka di luar rentang normal belum tentu berarti penyakit. Pelajari cara membaca hasil lab Anda dengan kepala dingin.",
+      content:
+        "Setiap parameter laboratorium memiliki rentang referensi. Nilai sedikit di luar rentang dapat dipengaruhi diet, aktivitas, atau waktu pengambilan sampel. Diskusikan tren beberapa kali pemeriksaan, bukan satu titik tunggal.",
+      tags: ["lab", "edukasi"],
+    },
+    {
+      id: "art-3",
+      title: "Anonim namun Terlindungi: Privasi di Aplikasi Kesehatan",
+      category: "Privasi",
+      author: "Tim MediTrust",
+      source: "MediTrust Editorial",
+      publishedAt: "2026-04-10",
+      readTimeMinutes: 4,
+      coverImage: "https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=1200&q=80",
+      excerpt:
+        "Bagaimana MediTrust melindungi identitas Anda saat menyimpan riwayat obat dan lab.",
+      content:
+        "Anda dapat menggunakan nama anonim. Data tersimpan terenkripsi di perangkat dan dapat disinkronkan ke Supabase pribadi Anda. Tidak ada pihak ketiga yang dapat membaca data tanpa kunci Anda.",
+      tags: ["privasi", "keamanan"],
+    },
+  ],
+  ads: {
+    enabled: true,
+    showSponsorLabel: true,
+    ads: [
+      {
+        id: "ad-vitamin-d",
+        format: "native",
+        placements: ["home", "education"],
+        enabled: false,
+        sponsor: "Nutrivit Health",
+        headline: "Vitamin D3 1000 IU — Dukung Imunitas Harian",
+        body: "Suplemen harian terstandar GMP. Bantu jaga daya tahan & kesehatan tulang Anda.",
+        callToAction: "Belanja sekarang",
+        imageUrl: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&q=80",
+        iconUrl: "https://images.unsplash.com/photo-1550572017-edd951b55104?w=200&q=80",
+        landingUrl: "https://example.com/nutrivit/vitamin-d3",
+        accentColor: "#C99A52",
+        category: "vitamin",
+        weight: 2,
+      },
+      {
+        id: "ad-lab-prodia",
+        format: "banner",
+        placements: ["labs", "home"],
+        enabled: true,
+        sponsor: "Prodia",
+        headline: "Cek Lab Lengkap — Diskon 20% untuk Pengguna MediTrust",
+        body: "Layanan home service tersedia di kota-kota besar.",
+        callToAction: "Pesan jadwal",
+        imageUrl: "https://images.unsplash.com/photo-1581595219315-a187dd40c322?w=1200&q=80",
+        landingUrl: "https://example.com/prodia/promo",
+        accentColor: "#0E5A66",
+        category: "lab",
+        weight: 3,
+      },
+      {
+        id: "ad-omega3",
+        format: "native",
+        placements: ["education"],
+        enabled: true,
+        sponsor: "OceanCare",
+        headline: "Omega-3 Premium dari Minyak Ikan Murni",
+        body: "Dukung kesehatan jantung & fungsi otak. Sertifikat IFOS 5-star.",
+        callToAction: "Pelajari produk",
+        imageUrl: "https://images.unsplash.com/photo-1559757175-08c2382964c7?w=1200&q=80",
+        landingUrl: "https://example.com/oceancare/omega3",
+        accentColor: "#1B7F8C",
+        category: "vitamin",
+        weight: 1,
+      },
+    ],
+  },
+  journals: [
+    {
+      id: "jrn-1",
+      title: "Effectiveness of Mobile Health Reminders on Medication Adherence: A Meta-Analysis",
+      authors: ["Anderson K.", "Lee J.", "Putri M."],
+      journalName: "Journal of Medical Internet Research",
+      year: 2024,
+      doi: "10.2196/jmir.2024.001",
+      url: "https://www.jmir.org/",
+      abstract:
+        "Meta-analisis 42 studi menunjukkan aplikasi pengingat seluler meningkatkan kepatuhan obat sebesar 17.4% dibandingkan kelompok kontrol.",
+      tags: ["mhealth", "adherence"],
+    },
+    {
+      id: "jrn-2",
+      title: "Anonymous Identifiers and Patient Trust in Digital Health Platforms",
+      authors: ["Suryani R.", "Pratama D."],
+      journalName: "Indonesian Journal of Health Informatics",
+      year: 2025,
+      doi: "10.1234/ijhi.2025.07",
+      url: "https://example.org/ijhi",
+      abstract:
+        "Kajian terhadap 1.200 responden Indonesia menemukan opsi nama anonim meningkatkan tingkat retensi pengguna aplikasi kesehatan sebesar 22%.",
+      tags: ["privasi", "kepercayaan"],
+    },
+  ],
+};
